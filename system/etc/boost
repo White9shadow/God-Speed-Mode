@@ -1,0 +1,59 @@
+#!/system/bin/sh
+
+# CPU Boost Tweaks Set Config
+if [[ -d "/sys/module/cpu_boost" ]]
+then
+	write /sys/module/cpu_boost/parameters/input_boost_freq "0:1800000"
+	write /sys/module/cpu_boost/parameters/input_boost_ms "60"
+	write /sys/module/cpu_input_boost/parameters/input_boost_duration "140"
+    write /sys/module/cpu_input_boost/parameters/dynamic_stune_boost_duration "2300"
+    write /sys/module/cpu_input_boost/parameters/dynamic_stune_boost "140"
+fi
+
+# GPU Boost Tweaks Set Config
+if [[ -d "/sys/devices/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0" ]]
+then
+	write /sys/devices/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/thermal_pwrlevel "1"
+	write /sys/devices/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/throttling "0"
+	write /sys/devices/soc/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel "0"
+fi
+
+#Doze
+dumpsys deviceidle enable
+dumpsys deviceidle force-inactive
+
+fi
+
+# Remove Cache, TMP, And Small Log
+# Tweaks Set Config
+  rm -f /cache/*.apk
+  rm -f /cache/*.tmp
+  rm -f /data/dalvik-cache/*.apk
+  rm -f /data/dalvik-cache/*.tmp
+  rm -r /data/local/tmp/*
+  rm -r /data/tmp/*
+  rm -r /data/system/usagestats/*
+  rm -r /data/system/appusagestats/*
+
+if [[ -d "/data/system/usagestats" ]]
+then
+  chmod 755 /data/system/usagestats;
+  chown root root /data/system/usagestats;
+  chgrp root root /data/system/usagestats;
+fi
+
+if [[ -d "/data/system/appusagestats" ]]
+then
+  chmod 755 /data/system/appusagestats;
+  chown root root /data/system/appusagestats;
+  chgrp root root /data/system/appusagestats;
+fi
+
+if [[ -d "/data/system/graphicsstats" ]]
+then
+  chmod 755 /data/system/graphicsstats
+  chown root root /data/system/graphicsstats
+  chgrp root root /data/system/graphicsstats
+fi
+
+sleep "0.005"

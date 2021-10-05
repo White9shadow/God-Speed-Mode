@@ -1,0 +1,57 @@
+# GODSPEED  v5 | GILGAMESH
+# VERSION =  v5 
+# DATE = 16-10-2021
+# !/system/bin/sh
+while (true)
+do
+
+#MISC:
+PSON=$(cat /sys/class/power_supply/usb/online) #Reads if power supply connected
+BATSTAT=$(cat /sys/class/power_supply/battery/capacity) #Reads actual battery capacity
+
+#Infos / MISC2:
+VBUS=$(($(cat /sys/class/power_supply/usb/voltage_now)/1000)) #Reads actual USB voltage (mV).
+IBUS=$(($(cat /sys/class/power_supply/battery/input_current_now)/1000)) #Reads actual USB Current draw (mA).
+BATTEMP=$(($(cat /sys/class/thermal/thermal_zone18/temp)/1000)) #Reads actual BAT temperature (ºC).
+BUCKTEMP=$(($(cat /sys/class/thermal/thermal_zone4/temp)/1000)) #Reads actual BUCK temperature (ºC).
+VBAT=$(($(cat /sys/class/power_supply/battery/voltage_now)/1000)) #Reads actual BAT voltage (mV).
+CURRENTNOW=$(($(cat /sys/class/power_supply/battery/current_now)/1000)) #Reads actual battery temperature (mA).
+
+#Calculations / JUST DISPLAY
+USBPDRAW=$(((($VBUS)*($IBUS))/1000)) #USB Power Draw (mW).
+BATPDRAW=$(((($VBAT)*($CURRENTNOW))/1000)) #BAT Power Draw (mW).
+
+#LogDisplay
+log -p v -t PSU_INFO "**********BUCK INFO**********"
+log -p v -t PSU_INFO "DC-DC PSU Temperature: $BUCKTEMP ºC" #Log related to DC-DC PSU.
+log -p v -t PSU_INFO "DC-DC PSU Input Voltage: $VBUS mV" #Log related to DC-DC PSU.
+log -p v -t PSU_INFO "DC-DC PSU Input Current: $IBUS mA" #Log related to DC-DC PSU.
+log -p v -t PSU_INFO "DC-DC BUS Power Draw: $USBPDRAW mW" #Log related to DC-DC PSU.
+
+log -p v -t PSU_INFO "**********BATTERY INFO**********"
+log -p v -t PSU_INFO "Battery Temperature: $BATTEMP ºC" #Log related to BAT PSU.
+log -p v -t PSU_INFO "Battery Voltage: $VBAT mV" #Log related to BAT PSU.
+log -p v -t PSU_INFO "Battery Current: $CURRENTNOW mA" #Log related to BAT PSU.
+log -p v -t PSU_INFO "Battery Power Draw: $BATPDRAW mW" #Log related to BAT PSU.
+
+if [ "$BATSTAT" -le "35" ] && [ "$PSON" -eq "0" ] ; then #Low Battery
+	echo "90" > /sys/class/leds/lcd-backlight/max_brightness # Brightness reduce
+	echo "2" > /sys/class/kgsl/kgsl-3d0/max_pwrlevel #GPU MAX - 250MHz
+else
+ if [ "$BATSTAT" -le "25" ] && [ "$PSON" -eq "1" ] || [ "$BUCKTEMP" -gt "82" ] || [ "$BATTEMP" -gt "47" ] ; then #Charging - Low Battery or Buck overheat
+	echo "120" > /sys/class/leds/lcd-backlight/max_brightness # 25% Brightness reduce
+    	echo "2800000" > /sys/class/power_supply/battery/constant_charge_current_max #Sets lower maximum allowed charging current for battery wakeup
+else 
+  if  [ "$BATSTAT" -ge "40" ] && [ "$PSON" -eq "1" ]  ; then #Pre-Charged
+	echo "160" > /sys/class/leds/lcd-backlight/max_brightness # 25% Brightness reduce
+	echo "1" > /sys/class/kgsl/kgsl-3d0/max_pwrlevel #GPU MAX - 450MHz
+	echo "3200000" > /sys/class/power_supply/battery/constant_charge_current_max #Sets maximum allowed charging current for turbo charging
+  else #Charged - Normal Battery
+    	echo "255" > /sys/class/leds/lcd-backlight/max_brightness #Normal Brightness
+    	echo "0" > /sys/class/kgsl/kgsl-3d0/max_pwrlevel #GPU MAX - 475MHz
+  fi
+ fi
+fi
+sleep 15 #Wait 10 seconds to run again
+done
+
