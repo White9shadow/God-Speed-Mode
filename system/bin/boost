@@ -1,0 +1,24 @@
+#!/system/bin/sh
+# GODSPEED STABLE
+# VERSION = SUKUNAS VESSEL
+# DATE = 16-9-2021
+clear
+echo
+sleep 2
+echo ""
+free | awk '/Mem/{print "Starting Boost : "$4/1024" MB";}'
+echo "";
+echo -n "====> GSM BoostIing your ram!!  Please wait";
+sync;
+echo -n ".";
+sleep 1
+echo "3" > /proc/sys/vm/drop_caches;
+sleep 1
+echo -n ".";
+echo "";
+echo "====> Removing all caches"
+sleep 2
+echo ""
+echo "====> All Done device is now optimized !!";
+echo "";
+free | awk '/Mem/{print "Free memory after boosted : "$4/1024" MB";}'
