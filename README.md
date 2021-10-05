@@ -8,5 +8,6 @@
 # more smoothness in game
 # thermal engine for pubg hd graphic
 # scrolling lag fixed
-#YT-https://youtube.com/c/WhiteShadowGameEra
+# YT-https://youtube.com/c/WhiteShadowGameEra
 
+# give credit if you use this
