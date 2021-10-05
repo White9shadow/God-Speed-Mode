@@ -1,0 +1,10 @@
+# Sysconfig Patcher Whitelist
+# Lines preceded by "#" are ignored.
+
+ims
+teleph
+downl
+qualc
+sony
+shell
+
