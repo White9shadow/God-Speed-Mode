@@ -36,7 +36,7 @@ ro.fb.mode=1
 ro.vold.umsdirtyratio=20
 ro.sf.compbypass.enable=0
 video.accelerate.hw=1
-debug.egl.swapinterval=-60
+debug.egl.swapinterval=-90
 
 # Graphic properties
 persist.demo.hdmirotationlock=false
@@ -49,7 +49,7 @@ ro.surface_flinger.max_virtual_display_dimension=4096
 ro.surface_flinger.protected_contents=true
 
 # Graphic Optimization
-ro.min_pointer_dur=1
+ro.min_pointer_dur=1.5
 
 # Memory  properties
 ro.surface_flinger.use_color_management=true
@@ -64,7 +64,7 @@ debug.sqlite.journalmode=WAL
 debug.sqlite.syncmode=1
 
 # Fps Booster
-persist.sys.NV_FPSLIMIT=144
+persist.sys.NV_FPSLIMIT=120
 persist.sys.NV_POWERMODE=1
 persist.sys.NV_PROFVER=15
 persist.sys.NV_STEREOCTRL=0
@@ -80,7 +80,7 @@ debug.sf.showbackground=0
 debug.sf.showfps=0
 
 # Graphic Optimization
-ro.min_pointer_dur=1
+ro.min_pointer_dur=2
 
 # Qualcomm Display Settings (Qualcomm devices ONLY!!)
 com.qc.hardware=1
@@ -107,7 +107,7 @@ debug.hwui.render_dirty_regions=false
 persist.added_boot_bgservices=3
 
 # Increase GPU buffer count
-debug.egl.buffcount=4
+debug.egl.buffcount=5
 #Touchfeature
 ro.vendor.touchfeature.gamemode.enable=true
 
@@ -120,7 +120,7 @@ touch.pressure.scale=0
 SurfaceOrientation=0
 TapDragInterval=0.1ms
 QuietInterval=0.1ms
-MovementSpeedRatio=0.8
+MovementSpeedRatio=0.9
 touch.pressure.scale=0.0001
 touch.orientationAware=0
 persist.sys.ui.hw=1
