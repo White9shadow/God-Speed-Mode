@@ -1,50 +1,19 @@
 # God-Speed-Mode
 
-# VERSION = 2X GLACIER CAT PRO
-_THIS MODULE FEATURED_
-_THIS MODULE FEATURED_
-#BULLET REGISTRATION
-#Dubble tap boost
-#Smooth Scrolling
-#Disable Dynamic Refresh Rate
-#Graphic Optimization
-#FPS Booster
-#APP UI changed
-#Governor change with profiles
-#Daily Use and Battery , Balance , Ultra Battery , Gaming 
-#I/O operations
-#Thermal Throttle
-#Zygote Preforking,Process Scheduler MultiMode
-#Memory Management
-#System prop
-#CPU boosted
-#CPU Memory Nodes Tweaks
-#Surface flingers Multimode
-#VM Tuner
-#Low Memory Killer
-#Doze On Board System
-#Auto Lauch After Flash
-#GPU Optimizer
-#CPU Power
-#I/O Optimizations
-#EAS/HMP kernel specific tweaks
-#Super optimization for Android12 & Aandroid12L
-#Android12/Android12L UI smoothness
-#SDcard tweak
-#Lag reduction
-#Entropy generator engine used to reduce lags
-#CPU Governors
-#GPU Rendering
-#IO Schedulers
-#System Cleaner Tweak
-#Kernel Panic Tweak
-#Aim assest Boost
-#Miscellaneous Tweak
-#Touch improvement
-#Ultra Power Saving
-#And many more
-[Do not change profile while playing games]
-[Do not change profile while playing games]
-# YT-https://youtube.com/c/WhiteShadowGameEra
+## Download 📲
+You can download GSMxNOROR from the following:
 
-# TG- https://t.me/godTspeed
+• [GS TO PLING](https://shorturl.at/HIW59)
+
+• [PAYPAL](https://paypal.me/revGSM)
+
+## Support ❤️
+If you liked any one of my projects then consider supporting me via following:
+
+• [PayPal](https://paypal.me/revGSM)
+
+• [Join telegram channel](https://t.me/godTspeed)
+
+• [Join telegram group](https://t.me/godpseedmode)
+
+• [Join telegram channel](https://godTspeed.xyz)
