@@ -1,7 +1,7 @@
-# God-Speed-Mode
+# God-Speed-Mode🚀
 
 ## Download 📲
-You can download GSMxNOROR from the following:
+You can download GODSPEED MODE LATEST from the following:
 
 • [GS TO PLING](https://shorturl.at/HIW59)
 
