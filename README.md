@@ -3,9 +3,9 @@
 ## Download 📲
 You can download GODSPEED MODE LATEST from the following:
 
-• [GS TO PLING](https://shorturl.at/HIW59)
+• [PLING](https://www.pling.com/p/1596710/)
 
-• [PAYPAL](https://paypal.me/revGSM)
+• [Donate](https://Ko-fi.com/revWS)
 
 ## Support ❤️
 If you liked any one of my projects then consider supporting me via following:
