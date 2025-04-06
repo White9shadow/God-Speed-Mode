@@ -1,1 +1,5 @@
-#MAGISK
+# Created by revWhiteShadow
+# Updater script for Godspeed Mode module, controls flashing process in recovery
+ui_print("=== Installing God-Speed-Mode ===");
+run_program("/sbin/sh", "$MODDIR/common/unity_install.sh");
+ui_print("Done!");
